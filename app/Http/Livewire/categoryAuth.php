@@ -18,7 +18,7 @@ class categoryAuth extends Component
 
     public function render()
     {
-        $category = categoryResource::collection(category::all());
+        $category = categoryResource::collection(category::paginate(5));
         return view('category',compact('category'));
     }
     

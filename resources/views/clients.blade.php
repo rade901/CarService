@@ -98,8 +98,29 @@
               </form>
         </div>
       </div>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+           <!-- Chart's container -->
+    <div id="chart" style="height: 300px;"></div>
+    <!-- Charting library -->
+    <script src="https://unpkg.com/chart.js@^2.9.3/dist/Chart.min.js"></script>
+    <!-- Chartisan -->
+    <script src="https://unpkg.com/@chartisan/chartjs@^2.1.0/dist/chartisan_chartjs.umd.js"></script>
+    <!-- Your application script -->
+    <script>
+     const chart = new Chartisan({
+  el: '#chart',
+  url: "@chart('service_chart')",
+  hooks: new ChartisanHooks()
+    .datasets('doughnut')
+    .pieColors(),
+})
+    </script>
+          </div>
+        </div>
+      </div>
   </div>
-    <div class="col-sm">
       <div class="col-sm">
         <div class="card">
           <div class="card-body">
@@ -136,8 +157,16 @@
                 </form>
           </div>
         </div>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe maxime nihil, autem dignissimos sint possimus. Ullam, suscipit! Dolorum in at, accusantium qui voluptatibus corrupti accusamus quam. Quia velit eaque perspiciatis?
+            </div>
+          </div>
+        </div>
     </div>
     </div>
+   
 <div class="container pt-5">
   <div class="card">
     <div class="card-body">
@@ -182,6 +211,7 @@
       </tr>
     </tbody>
   </table>
+  {{$clients->links()}}
 </div>
 </div>
 </div>

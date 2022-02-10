@@ -96,4 +96,78 @@
       </table>
         </div>
         @endif
+        <div class="container pt-5">
+          @if($category->count() > 0)
+          <div class="container pt-5">
+            <h1>Searching Result for <?php echo ucfirst($search_text);?></h1>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Created</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  @foreach ($category as $c) 
+                <tr>
+                  <th scope="row">{{$c->id}}</th>
+                  <td>{{Str::title($c->name)}}</td>  
+                   <td>{{$c->description}}</td>
+                   <td>{{$c->created_at->diffForHumans()}}</td>
+                   <td> <form action="category/{{$c->id}}" method="POST">
+                    @csrf
+        
+                    <button type="submit" class="btn btn-danger">Delete</button>
+        
+                  </form></td>
+                  @endforeach
+                 
+                 
+                </tr>
+              </tbody>
+            </table>
+              </div>
+              @endif
+              <div class="container pt-5">
+                @if($services->count() > 0)
+                <div class="container pt-5">
+                  <h1>Searching Result for <?php echo ucfirst($search_text);?></h1>
+                  <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">ID</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Description</th>
+                          <th scope="col">Price</th>
+                          <th scope="col">Created</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        
+                        @foreach ($services as $s) 
+                      <tr>
+                        <th scope="row">{{$s->id}}</th>
+                        <td>{{Str::title($s->name)}}</td>  
+                         <td>{{$s->description}}</td>
+                         <td>{{$s->price}} Kn</td>
+                         <td>{{$s->created_at->diffForHumans()}}</td>
+                         <td> <form action="services/{{$s->id}}" method="POST">
+                          @csrf
+              
+                          <button type="submit" class="btn btn-danger">Delete</button>
+              
+                        </form></td>
+                        @endforeach
+                       
+                       
+                      </tr>
+                    </tbody>
+                  </table>
+                    </div>
+                    @endif
         @endsection

@@ -28,6 +28,7 @@ class searchAuth extends Component
         $clients = client::where('name', 'LIKE', '%'.$search_text.'%')->get();
         $cars = car::where('mark', 'LIKE', '%'.$search_text.'%')->get();
         $category = category::where('name', 'LIKE', '%'.$search_text.'%')->get();
+        $services = service::where('name', 'LIKE', '%'.$search_text.'%')->get();
         $client_car = clientCarResource::collection(client_car::all());
         $client_service = clientServiceResource::collection(client_service::all());
         $car = carResource::collection(car::all());
