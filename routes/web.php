@@ -34,3 +34,4 @@ Route::post('/cars/{id}',[CarController::class,'destroy']);
 Route::post('/services',[ServiceController::class,'store']);
 Route::post('/services/{id}',[ServiceController::class,'destroy']);
 Route::post('/search',[ClientCarController::class,'store']);
+Route::put('/edit/{client}',[ClientController::class,'update']);

@@ -22,7 +22,9 @@
         @hasSection('content')
             @yield('content')
         @else
-            {{ $slot }}
+        <div class="container">
+            @yield('content')
+        </div>
         @endif
     </main>
 

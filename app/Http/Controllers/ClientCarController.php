@@ -36,6 +36,10 @@ class ClientCarController extends Controller
      */
     public function store(Storeclient_carRequest $request)
     {
+        $validate = $request->validate([
+            'client_id' => 'required|integer',
+            'car_id' => 'required|integer',
+        ]);
         client_car::create([
             'client_id'=> $request->client_id,
             'car_id'=> $request->car_id,

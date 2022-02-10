@@ -1,8 +1,21 @@
-@section('title', __('Dish'))
-
+@section('title', __('Clients'))
+@extends('layouts.app')
+@section('content')
 <div>
     {{ __('You are in clients section!') }}
+    
+    @if ($errors->any())
+    @foreach ($errors->all() as $error)
+      <div class="alert alert-danger">
+        {{ $error }}
+      </div> 
+      
+    @endforeach
+    @endif
 </div>
+
+<div class="container">
+  @yield('content')
 
 <div class="container pt-5">
   <div class="row">
@@ -126,6 +139,8 @@
     </div>
     </div>
 <div class="container pt-5">
+  <div class="card">
+    <div class="card-body">
 <table class="table">
     <thead>
       <tr>
@@ -136,7 +151,8 @@
         <th scope="col">Phone</th>
         <th scope="col">Category</th>
         <th scope="col">Created</th>
-        <th scope="col">Action</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Edit</th>
       </tr>
     </thead>
     <tbody>
@@ -159,9 +175,14 @@
             <button type="submit" class="btn btn-danger">Delete</button>
 
           </form></td>
+        <td>
+          <a href="{{url('/edit/'.$c->id)}}" class="btn btn-success">Edit</a>
+        </td>
         @endforeach
       </tr>
     </tbody>
   </table>
-  
 </div>
+</div>
+</div>
+@endsection

@@ -1,5 +1,6 @@
 @section('title', __('Category'))
-
+@extends('layouts.app')
+@section('content')
 
 <div>
     {{ __('You are in Category!') }}
@@ -33,7 +34,10 @@
       </div>
     </div>
   </div>
-<div class="container pt-5">
+  <div class="container pt-5">
+  <div class="card">
+    <div class="card-body">
+
     <table class="table">
         <thead>
           <tr>
@@ -62,3 +66,6 @@
         </tbody>
       </table>
     </div>
+    </div>
+    </div>
+   @endsection

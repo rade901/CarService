@@ -1,9 +1,19 @@
 @section('title', __('Cars'))
 
-
+@extends('layouts.app')
+@section('content')
 <div>
     {{ __('You are in Cars !') }}
+    @if ($errors->any())
+    @foreach ($errors->all() as $error)
+      <div class="alert alert-danger">
+        {{ $error }}
+      </div> 
+      
+    @endforeach
+  @endif
 </div>
+
 <div class="container pt-5">
     <div class="row">
       <div class="col">
@@ -43,6 +53,8 @@
     </div>
   </div>
 <div class="container pt-5">
+  <div class="card">
+    <div class="card-body">
     <table class="table">
         <thead>
           <tr>
@@ -77,3 +89,6 @@
         </tbody>
       </table>
     </div>
+    </div>
+    </div>
+@endsection

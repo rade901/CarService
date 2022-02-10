@@ -26,6 +26,7 @@ class searchAuth extends Component
     {
         $search_text = $_GET['query'];
         $clients = client::where('name', 'LIKE', '%'.$search_text.'%')->get();
+        $cars = car::where('mark', 'LIKE', '%'.$search_text.'%')->get();
         $category = category::where('name', 'LIKE', '%'.$search_text.'%')->get();
         $client_car = clientCarResource::collection(client_car::all());
         $client_service = clientServiceResource::collection(client_service::all());
@@ -35,7 +36,7 @@ class searchAuth extends Component
             return '<h2>No Results</h2>';
         }
         
-        return view ('search',compact('clients','category','client_car','car','search_text','client_service','services')); 
+        return view ('search',compact('clients','category','client_car','car','search_text','client_service','services','cars')); 
         
        
     }

@@ -18,7 +18,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-       
+      
     }
 
     /**
@@ -39,6 +39,14 @@ class ClientController extends Controller
      */
     public function store(StoreclientRequest $request)
     {
+        $validate = $request->validate([
+            'name' => 'required|regex:/^[a-zA-Z]+$/u||string|max:255',
+            'lastname' => 'required|regex:/^[a-zA-Z]+$/u||string|max:255',
+            'email' => 'required|string|max:255',
+            'phone' => 'required|string|max:255',
+            'category_id' => 'required|integer',
+        ]);
+        $input = $request->all();
         client::create([
             'name'=>$request->name,
             'lastname'=>$request->lastname,
@@ -70,7 +78,9 @@ class ClientController extends Controller
      */
     public function edit(client $client)
     {
-        //
+      $client = client::find($client->id);
+        $category =category::all();
+        return view('/edit', compact('client','category'));
     }
 
     /**
@@ -80,9 +90,17 @@ class ClientController extends Controller
      * @param  \App\Models\client  $client
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateclientRequest $request, client $client)
+    public function update(UpdateclientRequest $request, client $client,category $category)
     {
-        //
+        $client = client::find($client->id);
+        $client->name = $request->input('name');
+        $client->lastname = $request->input('lastname');
+        $client->email = $request->input('email');
+        $client->phone = $request->input('phone');
+        $client->category_id = $request->input('category_id');
+        $client->update();
+        return redirect('/clients');
+
     }
 
     /**

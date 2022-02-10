@@ -37,6 +37,13 @@ class CarController extends Controller
      */
     public function store(StorecarRequest $request)
     {
+        $validate = $request->validate([
+            'mark'=>'required|regex:/^[a-zA-Z]+$/u|max:255',
+            'number_chassis'=>'required',
+            'power_kw'=>'required',
+            'in_trafic'=>'required',
+        ]);
+
         car::create([
             'mark'=>$request->mark,
             'number_chassis'=>$request->number_chassis,
@@ -89,7 +96,7 @@ class CarController extends Controller
      * @param  \App\Models\car  $car
      * @return \Illuminate\Http\Response
      */
-    public function destroy(car $car)
+    public function destroy(car $car,$id)
     {
         $car = car::find($id);
         $car->delete();
