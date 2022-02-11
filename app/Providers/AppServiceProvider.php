@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        
     }
 
     /**
@@ -30,6 +30,9 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
         $charts->register([
             \App\Charts\serviceChart::class
+        ]);
+        $charts->register([
+            \App\Charts\categoryChart::class
         ]);
     }
 }

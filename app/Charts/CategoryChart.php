@@ -8,10 +8,12 @@ use Chartisan\PHP\Chartisan;
 use ConsoleTVs\Charts\BaseChart;
 use Illuminate\Http\Request;
 use App\Models\client;
-use App\Models\service;
-use App\Models\car;
+use App\Models\category;
+use App\Http\Resources\clientResource;
 
-class ServiceChart extends BaseChart
+
+
+class CategoryChart extends BaseChart
 {
     /**
      * Handles the HTTP request for the given chart.
@@ -20,12 +22,12 @@ class ServiceChart extends BaseChart
      */
     public function handler(Request $request): Chartisan
     {
-        $clients = client::count();
-        $services = service::count();
-        $cars = car::count();
+        $clients  = client::count();
+        $category = client::where('category_id','=','3')->count();
+        $private = client::where('category_id','=','4')->count();
         return Chartisan::build()
-            ->labels(['Clients', 'Service', 'Total Cars'])
-            ->dataset('Sample', [$clients, $services, $cars]);
+            ->labels(['Clients', 'Business', 'Private'])
+            ->dataset('Clients category chart', [$clients, $category, $private]);
             
     }
 }

@@ -36,6 +36,10 @@ class ClientServiceController extends Controller
      */
     public function store(Storeclient_serviceRequest $request)
     {
+        $validate = $request->validate([
+            'client_id' => 'required|integer',
+            'service_id' => 'required|integer',
+        ]);
         client_service::create([
             'client_id'=> $request->client_id,
             'service_id'=> $request->service_id,

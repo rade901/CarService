@@ -37,6 +37,11 @@ class ServiceController extends Controller
      */
     public function store(StoreserviceRequest $request)
     {
+        $validate = $request->validate([
+            'name' => 'required|regex:/^[a-zA-Z]+$/u||string|max:255',
+            'price' => 'required|integer',
+            'category_id' => 'required|integer',
+        ]);
         service::create([
             'name'=>$request->name,
             'price'=>$request->price,

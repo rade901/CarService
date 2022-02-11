@@ -88,6 +88,7 @@
           </tr>
         </tbody>
       </table>
+      {{$cars->links()}}
     </div>
     </div>
     </div>

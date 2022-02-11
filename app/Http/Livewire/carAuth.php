@@ -18,7 +18,7 @@ class carAuth extends Component
 
     public function render()
     {
-        $cars = carResource::collection(car::all());
+        $cars = carResource::collection(car::paginate(5));
         return view('cars',compact('cars'));
     }
     
