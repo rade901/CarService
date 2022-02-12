@@ -14,3 +14,8 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/scss/app.scss', 'public/css')
     .sourceMaps();
+
+    mix.styles([
+        'vendor/components/font-awesome/css/fontawesome.css',
+    ], 'public/css/all.css');
+    

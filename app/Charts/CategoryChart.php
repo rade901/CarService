@@ -23,8 +23,8 @@ class CategoryChart extends BaseChart
     public function handler(Request $request): Chartisan
     {
         $clients  = client::count();
-        $category = client::where('category_id','=','3')->count();
-        $private = client::where('category_id','=','4')->count();
+        $category = client::where('category_id','=','1')->count();
+        $private = client::where('category_id','=','2')->count();
         return Chartisan::build()
             ->labels(['Clients', 'Business', 'Private'])
             ->dataset('Clients category chart', [$clients, $category, $private]);
