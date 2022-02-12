@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <!-- Styles -->
         <style>
@@ -21,9 +22,10 @@
         </style>
     </head>
     <body class="antialiased">
+        <div class="container" >
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                <div class="fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
                         <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
                     @else
@@ -35,6 +37,7 @@
                     @endauth
                 </div>
             @endif
+            
             <div class="container">
                 <a href="{{ url('/') }}" class="d-flex align-items-center navbar-brand">
                     <x-fab-laravel height="70" class="text-primary me-1"/> <h1>{{ config('app.name') }}</h1>
@@ -42,7 +45,53 @@
                 </a>
                 
               </div>
-           
+            </div>
+            <footer class="text-center text-white" style="background-color: #f1f1f1;">
+                <!-- Grid container -->
+                <div class="container pt-4">
+                  <!-- Section: Social media -->
+                  <section class="mb-4">
+                    <!-- Facebook -->
+                    <a
+                      class="btn btn-link btn-floating btn-lg text-dark m-1"
+                      href="https://www.facebook.com/profile.php?id=100017197869080"
+                      role="button"
+                      data-mdb-ripple-color="dark"
+                      target="_blank"
+                      ><i class="fa-brands fa-facebook"></i>
+        
+                    </a>
+              
+                    <!-- Linkedin -->
+                    <a
+                      class="btn btn-link btn-floating btn-lg text-dark m-1"
+                      href="https://hr.linkedin.com/in/rade-jasenovcanin-545184204"
+                      role="button"
+                      data-mdb-ripple-color="dark"
+                      target="_blank"
+                      ><i class="fab fa-linkedin"></i
+                    ></a>
+                    <!-- Github -->
+                    <a
+                      class="btn btn-link btn-floating btn-lg text-dark m-1"
+                      href="https://github.com/rade901"
+                      role="button"
+                      data-mdb-ripple-color="dark"
+                      target="_blank"
+                      ><i class="fab fa-github"></i
+                    ></a>
+                  </section>
+                  <!-- Section: Social media -->
+                </div>
+                <!-- Grid container -->
+              
+                <!-- Copyright -->
+                <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                  © <?php echo date("Y");?> Copyright:
+                  {{ config('app.name') }}
+                </div>
+                <!-- Copyright -->
+              </footer>
     </body>
 </html>
 

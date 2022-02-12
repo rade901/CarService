@@ -71,7 +71,7 @@
 
                 <ul class="navbar-nav ms-auto">
                     <form class="d-flex" method="get" action="{{url('/search')}}">
-                        <input class="form-control me-2" name="query" placeholder="Search" aria-label="Search">
+                        <input class="form-control me-2" name="query" placeholder="Search for clients" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                       </form>
                     <li class="nav-item dropdown">

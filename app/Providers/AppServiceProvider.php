@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Pagination\Paginator;
 use ConsoleTVs\Charts\Registrar as Charts;
 
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -34,5 +35,6 @@ class AppServiceProvider extends ServiceProvider
         $charts->register([
             \App\Charts\categoryChart::class
         ]);
+     
     }
 }

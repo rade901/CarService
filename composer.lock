@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "771b4b2e2fe2086b128dd3b3aafa4bb5",
+    "content-hash": "068fe5f5fc41155c8fb6069ff500f0b3",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -497,6 +497,45 @@
                 "source": "https://github.com/Chartisan/PHP/tree/1.2.1"
             },
             "time": "2020-11-05T13:13:58+00:00"
+        },
+        {
+            "name": "components/font-awesome",
+            "version": "5.15.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/font-awesome.git",
+                "reference": "e6fd09f30f578915cc0cf186b0dd0da54385b6be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/font-awesome/zipball/e6fd09f30f578915cc0cf186b0dd0da54385b6be",
+                "reference": "e6fd09f30f578915cc0cf186b0dd0da54385b6be",
+                "shasum": ""
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "styles": [
+                        "css/all.css"
+                    ],
+                    "files": [
+                        "css/all.min.css",
+                        "webfonts/*"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "CC-BY-4.0",
+                "MIT",
+                "OFL-1.1"
+            ],
+            "description": "Font Awesome, the iconic SVG, font, and CSS framework.",
+            "support": {
+                "issues": "https://github.com/components/font-awesome/issues",
+                "source": "https://github.com/components/font-awesome/tree/5.15.4"
+            },
+            "time": "2021-08-15T10:31:24+00:00"
         },
         {
             "name": "consoletvs/charts",

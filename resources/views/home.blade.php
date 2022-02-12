@@ -1,6 +1,7 @@
 @section('title', __('Home'))
 @extends('layouts.app')
 @section('content')
+<div class="d-flex flex-column min-vh-100">
 <div class="container">
     <div class="row">
       <div class="col">
@@ -18,5 +19,6 @@
         
       </div>
     </div>
+  </div>
   </div>
 @endsection
