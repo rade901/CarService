@@ -74,6 +74,7 @@
                         <input class="form-control me-2" name="query" placeholder="Search for clients" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                       </form>
+                      
                     <li class="nav-item dropdown">
                         <a href="#" class="d-flex align-items-center nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <x-fas-user-circle height="16" class="me-1"/> {{ Auth::user()->name }}

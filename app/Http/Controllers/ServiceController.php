@@ -38,9 +38,9 @@ class ServiceController extends Controller
     public function store(StoreserviceRequest $request)
     {
         $validate = $request->validate([
-            'name' => 'required|regex:/^[a-zA-Z]+$/u||string|max:255',
+            'name' => 'required|string|max:255',
             'price' => 'required|integer',
-            'category_id' => 'required|integer',
+            'description' => 'required|string|max:255',
         ]);
         service::create([
             'name'=>$request->name,
@@ -93,7 +93,7 @@ class ServiceController extends Controller
      * @param  \App\Models\service  $service
      * @return \Illuminate\Http\Response
      */
-    public function destroy(service $service)
+    public function destroy(service $service ,$id)
     {
         $service = service::find($id);
         $service->delete();

@@ -44,7 +44,7 @@ class ClientCarController extends Controller
             'client_id'=> $request->client_id,
             'car_id'=> $request->car_id,
         ]);
-        return redirect('/clients');
+        return redirect('/cars');
     }
 
     /**

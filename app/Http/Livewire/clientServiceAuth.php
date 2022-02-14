@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use Illuminate\Support\Facades\Route;
 use Livewire\Component;
 use App\Http\Resources\clientResource;
-use App\Http\Resources\clientCarResource;
+use App\Http\Resources\clientserviceResource;
 use App\Http\Resources\categoryResource;
 use App\Http\Resources\carResource;
 use App\Http\Resources\serviceResource;

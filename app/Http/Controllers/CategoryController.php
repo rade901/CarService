@@ -38,7 +38,7 @@ class CategoryController extends Controller
     public function store(StorecategoryRequest $request)
     {
         $validate = $request->validate([
-            'name' => 'required|regex:/^[a-zA-Z]+$/u||string|max:255',
+            'name' => 'required|string|max:255',
             'description' => 'required|string|max:255',
         ]);
         category::create([
@@ -58,7 +58,7 @@ class CategoryController extends Controller
      */
     public function show(category $category)
     {
-        return new categoryResource($client); 
+        return new categoryResource($category); 
     }
 
     /**

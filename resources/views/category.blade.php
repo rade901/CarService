@@ -2,20 +2,19 @@
 @extends('layouts.app')
 @section('content')
     <div class="d-flex flex-column min-vh-100">
-        <div>
-<<<<<<< HEAD
-            {{'Your last added category '}}{{Str::title($last_category->name)}}
-=======
-            {{ __('You are in Category!' echo $last_category) }}
->>>>>>> 963c233800130b2a59ef63e93c9fb36e51151333
-            @if ($errors->any())
+        @if ($last_category == null)
+        {{'Add new category'}}  
+        @else
+        {{'Your last added category'}} {{Str::title($last_category->name)}}
+        @endif
+         @if ($errors->any())
                 @foreach ($errors->all() as $error)
                     <div class="alert alert-danger">
                         {{ $error }}
                     </div>
                 @endforeach
             @endif
-        </div>
+       
 
         <div class="container pt-5">
             <div class="row">

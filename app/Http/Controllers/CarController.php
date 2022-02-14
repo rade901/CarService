@@ -43,6 +43,7 @@ class CarController extends Controller
             'power_kw'=>'required',
             'in_trafic'=>'required',
         ]);
+        
 
         car::create([
             'mark'=>$request->mark,

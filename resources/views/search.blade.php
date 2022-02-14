@@ -30,7 +30,6 @@
     @endforeach
 
     </div>
-
     <div class="container pt-5">
         <div class="card">
             <div class="card-body">
@@ -51,29 +50,34 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($client_car as $cc)
+                                            @if ($car->count() > 0)
+
                                                 @foreach ($car as $ca)
-                                                    @if ($cc->client_id == $c->id && $cc->car_id == $ca->id)
-                                                        <tr>
-                                                            <td>
-                                                                {{ $ca->mark }}
-                                                            </td>
-                                                            <td>
-                                                                {{ $ca->number_chassis }}
-                                                            </td>
-                                                            <td>
-                                                                {{ $ca->power_kw }} KW
-                                                            </td>
-                                                            <td>
-                                                                {{ $ca->in_trafic }}
-                                                            </td>
-                                                            <td>
-                                                                {{ $ca->created_at->diffForHumans() }}
-                                                            </td>
-                                                        </tr>
-                                                    @endif
-                                                @endforeach
-                                            @endforeach
+                                                    @foreach ($client_car as $cc)
+                                                        @foreach ($car as $ca)
+                                                            @if ($cc->client_id == $c->id && $cc->car_id == $ca->id)
+                                                                <tr>
+                                                                    <td>
+                                                                        {{ $ca->mark }}
+                                                                    </td>
+                                                                    <td>
+                                                                        {{ $ca->number_chassis }}
+                                                                    </td>
+                                                                    <td>
+                                                                        {{ $ca->power_kw }} KW
+                                                                    </td>
+                                                                    <td>
+                                                                        {{ $ca->in_trafic }}
+                                                                    </td>
+                                                                    <td>
+                                                                        {{ $ca->created_at->diffForHumans() }}
+                                                                    </td>
+                                                                </tr>
+                                                            @endif
+                                                            
+                                                        @endforeach
+                                                        
+                                                    @endforeach                                                  
                                         </tbody>
                                     </table>
                                 </div>
@@ -84,6 +88,11 @@
             </div>
         </div>
     </div>
+    
+    @endforeach
+    @else
+@endif
+
     <div class="container pt-5">
         <div class="card">
             <div class="card-body">

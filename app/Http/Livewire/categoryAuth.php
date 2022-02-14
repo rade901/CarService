@@ -20,11 +20,7 @@ class categoryAuth extends Component
     {
         $category = categoryResource::collection(category::paginate(5));
         $last_category = category::latest()->first();
-<<<<<<< HEAD
         return view('category',compact('category','last_category'));
-=======
-        return view('category',compact('category'));
->>>>>>> 963c233800130b2a59ef63e93c9fb36e51151333
     }
     
 }

@@ -14,12 +14,13 @@
     </div>
 
     <div class="container pt-5">
-        <div class="row">
-            <div class="col">
+        <div class="container">
+            <div class="row">
+              <div class="col">
                 <div class="card">
                     <div class="card-body">
                         <h3>Add New Car</h3>
-                        <form form action="cars" method="POST">
+                        <form  action="cars" method="POST">
                             @csrf
                             <div class="form-group">
                                 <label for="Input">Mark</label>
@@ -43,7 +44,48 @@
                         </form>
                     </div>
                 </div>
+              </div>
+              <div class="col">
+                <div class="col-sm">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>Add Car for Client</h3>
+                            <form action="client_car" method="POST">
+                                @csrf
+                                <div class="form-group">
+                                    <label class="form-label">Car</label>
+                                    <select name="car_id" class="form-select"  id="chosen" >
+                                        <option selected>Open this select menu</option>
+
+
+                                        @foreach ($car as $ca)
+                                            <option value="{{ $ca->id }}">{{ Str::title($ca->mark) }}</option>
+                                        @endforeach
+                                    </select>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Car</label>
+                                    <select name="client_id" class="form-select"  id="chosen2" >
+                                        <option selected>Open this select menu</option>
+
+
+                                        @foreach ($clientsfind as $c)
+                                            <option value="{{ $c->id }}">{{ Str::title($c->name) }}</option>
+                                        @endforeach
+                                    </select>
+
+                                </div>
+
+
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+              </div>
             </div>
+          </div>
+           
     <div class="container pt-5">
         <div class="card">
             <div class="card-body">
@@ -82,6 +124,7 @@
 
                                                             </form>
                                                         </td>
+                                                       
                                                 @endforeach
 
 
@@ -97,4 +140,13 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        $("#chosen").chosen({
+         no_results_text: "Oops, nothing found!",
+         width: "100%",
+       });
+     </script>
+     <script type="text/javascript">
+         $("#chosen2").chosen();
+      </script>
 @endsection

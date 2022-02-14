@@ -7,6 +7,7 @@ use App\Http\Controllers\CarController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ClientCarController;
 use App\Http\Controllers\ClientServiceController;
+use App\Http\Controllers\AddCarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,7 @@ Route::get('/', function () {
 });
 
 Route::post('/clients_service',[ClientServiceController::class,'store']);
-Route::post('/clients_car',[ClientCarController::class,'store']);
+Route::post('/client_car',[ClientCarController::class,'store']);
 Route::post('/clients',[ClientController::class,'store']);
 Route::post('/clients/{id}',[ClientController::class,'destroy']);
 Route::post('/category',[CategoryController::class,'store']);

@@ -32,11 +32,12 @@ class clientAuth extends Component
         $client_car = clientCarResource::collection(client_car::all());
         $client_service = clientServiceResource::collection(client_service::all());
         $clients = clientResource::collection(client::paginate(5));
+        $clientsfind = clientResource::collection(client::all());
         $category = categoryResource::collection(category::all());
         $car = carResource::collection(car::all());
       
         
-        return view('clients',compact('clients','category','car','client_car','services'));
+        return view('clients',compact('clients','category','car','client_car','services','client_service','clientsfind'));
     }
     
 }
