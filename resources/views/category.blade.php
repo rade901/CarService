@@ -32,7 +32,10 @@
                                     <label for="input">Description</label>
                                     <input type="text" class="form-control" name="description" placeholder="Description">
                                 </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <div class="pt-3">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                                
                             </form>
                         </div>
                     </div>

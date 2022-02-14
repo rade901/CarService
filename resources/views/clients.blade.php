@@ -56,10 +56,10 @@
 
                                 </div>
 
-                                <div class="pt-3">
+                                <div class="pt-3" >
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
-                                
+
                             </form>
                         </div>
                     </div>
@@ -67,29 +67,29 @@
                 <div class="col-sm">
                     <div class="card">
                         <div class="card-body">
-                          <!-- Chart's container -->
-                          <div id="chart" style="height: 300px;"></div>
-                          <!-- Charting library -->
-                          <script src="https://unpkg.com/chart.js@^2.9.3/dist/Chart.min.js"></script>
-                          <!-- Chartisan -->
-                          <script src="https://unpkg.com/@chartisan/chartjs@^2.1.0/dist/chartisan_chartjs.umd.js"></script>
-                          <!-- Your application script -->
-                          <script>
-                              const chart = new Chartisan({
-                                  el: '#chart',
-                                  url: "@chart('service_chart')",
-                                  hooks: new ChartisanHooks()
-                                      .datasets('doughnut')
-                                      .pieColors(),
-                              })
-                          </script>   
-                        
+                            <!-- Chart's container -->
+                            <div id="chart" style="height: 300px;"></div>
+                            <!-- Charting library -->
+                            <script src="https://unpkg.com/chart.js@^2.9.3/dist/Chart.min.js"></script>
+                            <!-- Chartisan -->
+                            <script src="https://unpkg.com/@chartisan/chartjs@^2.1.0/dist/chartisan_chartjs.umd.js"></script>
+                            <!-- Your application script -->
+                            <script>
+                                const chart = new Chartisan({
+                                    el: '#chart',
+                                    url: "@chart('service_chart')",
+                                    hooks: new ChartisanHooks()
+                                        .datasets('doughnut')
+                                        .pieColors(),
+                                })
+                            </script>
+
+                        </div>
                     </div>
-                </div>
                     <div class="container">
                         <div class="row">
                             <div class="col">
-                               
+
                             </div>
                         </div>
                     </div>
@@ -102,8 +102,8 @@
                                 @csrf
                                 <div class="form-group">
                                     <label class="form-label">Service</label>
-                                    <select name="service_id" class="form-select"  id="chosen" >
-                                        <option selected>Open this select menu</option>
+                                    <select name="service_id" class="form-select" id="chosen">
+                                        <option selected>Search service...</option>
 
 
                                         @foreach ($services as $se)
@@ -114,19 +114,22 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Client</label>
-                                    <select name="client_id" class="form-select"  id="chosen2" >
-                                        <option selected>Open this select menu</option>
+                                    <select name="client_id" class="form-select" id="chosen2">
+                                        <option selected>Search clients...</option>
 
 
                                         @foreach ($clients as $cl)
-                                            <option value="{{ $cl->id }}">{{ Str::title($cl->name) }}</option>
+                                            <option value="{{ $cl->id }}">{{ Str::title($cl->name) }}
+                                                {{ Str::title($cl->lastname) }}</option>
                                         @endforeach
                                     </select>
 
                                 </div>
 
+                                <div class="pt-3">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
 
-                                <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
                         </div>
                     </div>
@@ -205,13 +208,18 @@
                     {{ $clients->links() }}
                 </div>
             </div>
-<script type="text/javascript">
-   $("#chosen").chosen({
-    no_results_text: "Oops, nothing found!",
-    width: "100%",
-  });
-</script>
-<script type="text/javascript">
-    $("#chosen2").chosen();
- </script>
+            <script type="text/javascript">
+                $("#chosen").chosen({
+                    no_results_text: "Oops, nothing found!",
+                    width: "100%",
+                    max_shown_results: 3,
+                });
+            </script>
+            <script type="text/javascript">
+                $("#chosen2").chosen({
+                    no_results_text: "Oops, nothing found!",
+                    width: "100%",
+                    max_shown_results: 3,
+                });
+            </script>
         @endsection

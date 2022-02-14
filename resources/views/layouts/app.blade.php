@@ -13,6 +13,7 @@
     </title>
 
     <livewire:styles/>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
@@ -28,6 +29,16 @@
     
 </head>
 <body>
+  <script type="text/javascript">
+   function handleEnter(event) {
+   if (event.key==='keydown', logKey) {
+      const form = document.getElementById('form')
+      const index = [...form].indexOf(event.target);
+      form.elements[index + 1].focus();
+      //event.preventDefault();
+    }
+}
+  </script>
     <livewire:layouts.nav/>
 
     <main class="container my-3">

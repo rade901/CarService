@@ -32,7 +32,9 @@
                                 <label for="input">Price</label>
                                 <input type="number" class="form-control" name="price" placeholder="Description">
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <div class="pt-3">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
                         </form>
                     </div>
                 </div>
