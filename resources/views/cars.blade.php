@@ -2,6 +2,7 @@
 
 @extends('layouts.app')
 @section('content')
+<div class="d-flex flex-column min-vh-100">
     <div>
         {{ __('You are in Cars !') }}
         @if ($errors->any())
@@ -56,25 +57,28 @@
                                 <form action="client_car" method="POST">
                                     @csrf
                                     <div class="form-group">
-                                        <label class="form-label">Car</label>
-                                        <select name="car_id" class="form-select" id="chosen">
-                                            <option selected>Open this select menu</option>
+                                        <label class="form-label">Cars</label>
+                                        <select name="car_id" class="form-select" id="car">
+                                            <option>Search for cars...</option>
 
 
                                             @foreach ($car as $ca)
-                                                <option value="{{ $ca->id }}">{{ Str::title($ca->mark) }},{{ $ca->number_chassis }}</option>
+                                                <option value="{{ $ca->id }}">
+                                                    {{ Str::title($ca->mark) }},{{ $ca->number_chassis }}</option>
                                             @endforeach
                                         </select>
 
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label">Car</label>
-                                        <select name="client_id" class="form-select" id="chosen2">
-                                            <option selected>Open this select menu</option>
+                                        <label class="form-label">Clients</label>
+                                        <select name="client_id" class="form-select" id="client">
+                                            <option>Search for clients...</option>
+
 
 
                                             @foreach ($clientsfind as $c)
-                                                <option value="{{ $c->id }}">{{ Str::title($c->name) }} {{ Str::title($c->lastname) }}</option>
+                                                <option value="{{ $c->id }}">{{ Str::title($c->name) }}
+                                                    {{ Str::title($c->lastname) }}</option>
                                             @endforeach
                                         </select>
 
@@ -145,18 +149,55 @@
                     </div>
                 </div>
             </div>
+        </div>
             <script type="text/javascript">
-                $("#chosen").chosen({
-                    no_results_text: "Oops, nothing found!",
-                    width: "100%",
-                    max_shown_results: 3,
+                $(document).ready(function() {
+                    $('#car').select2({
+                        minimumInputLength: 2,
+                        query: function(query) {
+                            var data = {
+                                    results: []
+                                },
+                                i, j, s;
+                            for (i = 1; i < 5; i++) {
+                                s = "";
+                                for (j = 0; j < i; j++) {
+                                    s = s + query.term;
+                                }
+                                data.results.push({
+                                    id: query.term + i,
+                                    text: s
+                                });
+                            }
+                            query.callback(data);
+                        }
+                    });
+
                 });
             </script>
             <script type="text/javascript">
-                $("#chosen2").chosen({
-                    no_results_text: "Oops, nothing found!",
-                    width: "100%",
-                    max_shown_results: 3,
+                $(document).ready(function() {
+                    $('#client').select2({
+                        minimumInputLength: 2,
+                        query: function(query) {
+                            var data = {
+                                    results: []
+                                },
+                                i, j, s;
+                            for (i = 1; i < 5; i++) {
+                                s = "";
+                                for (j = 0; j < i; j++) {
+                                    s = s + query.term;
+                                }
+                                data.results.push({
+                                    id: query.term + i,
+                                    text: s
+                                });
+                            }
+                            query.callback(data);
+                        }
+                    });
+
                 });
             </script>
         @endsection
