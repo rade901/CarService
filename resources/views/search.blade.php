@@ -54,7 +54,7 @@
 
                                                 @foreach ($car as $ca)
                                                     @foreach ($client_car as $cc)
-                                                        @foreach ($car as $ca)
+                                                       
                                                             @if ($cc->client_id == $c->id && $cc->car_id == $ca->id)
                                                                 <tr>
                                                                     <td>
@@ -75,7 +75,7 @@
                                                                 </tr>
                                                             @endif
                                                             
-                                                        @endforeach
+                                                       
                                                         
                                                     @endforeach                                                  
                                         </tbody>
